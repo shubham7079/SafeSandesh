@@ -1,0 +1,6 @@
+{
+  "name": "SafeSandesh",
+  "description": "Check before you trust. Check messages, screenshots, and links against fraud patterns.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

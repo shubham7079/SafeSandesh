@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Outer Shield Silhouette -->
+    <path
+        android:fillColor="#1456C4"
+        android:pathData="M54,22 C67,22 80,26 84,30 L84,54 C84,72 70,83 54,88 C38,83 24,72 24,54 L24,30 C28,26 41,22 54,22 Z" />
+    <!-- Inner Shield Inset -->
+    <path
+        android:fillColor="#0B2545"
+        android:pathData="M54,27 C64,27 75,30 78,34 L78,54 C78,68 67,77 54,82 C41,77 30,68 30,54 L30,34 C33,30 44,27 54,27 Z" />
+    <!-- Message Bubble Indicator Behind Check -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M37,42 C37,38.7 39.7,36 43,36 L65,36 C68.3,36 71,38.7 71,42 L71,60 C71,63.3 68.3,66 65,66 L50,66 L43,72 L43,66 L43,66 C39.7,66 37,63.3 37,60 Z" />
+    <!-- Checkmark in Message Bubble -->
+    <path
+        android:fillColor="#1E8E3E"
+        android:pathData="M48,51 L44.5,47.5 L42,50 L48,56 L64,40 L61.5,37.5 Z" />
+</vector>

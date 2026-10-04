@@ -1,0 +1,8 @@
+{
+  "firestore": [
+    {
+      "database": "ai-studio-android-safesand-aaf59abe-0479-41f7-8f55-861ce941beba",
+      "rules": "firestore.rules"
+    }
+  ]
+}

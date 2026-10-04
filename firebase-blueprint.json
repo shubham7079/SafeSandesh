@@ -1,0 +1,136 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User preferences and cloud status",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Unique user ID matching Firebase Auth UID"
+        },
+        "lang": {
+          "type": "string",
+          "description": "Preferred language (en or hi)"
+        },
+        "textScale": {
+          "type": "number",
+          "description": "Text scaling preference (1.0 or 1.2)"
+        },
+        "isPremium": {
+          "type": "boolean",
+          "description": "Subscription status"
+        },
+        "updatedAt": {
+          "type": "number",
+          "description": "Timestamp of last profile update"
+        }
+      },
+      "required": ["userId", "lang", "textScale", "isPremium", "updatedAt"]
+    },
+    "CheckHistory": {
+      "title": "CheckHistory",
+      "description": "A saved scam analysis check result",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for this check"
+        },
+        "userId": {
+          "type": "string",
+          "description": "UID of the user who performed this check"
+        },
+        "createdAt": {
+          "type": "number",
+          "description": "Creation timestamp in milliseconds"
+        },
+        "kind": {
+          "type": "string",
+          "description": "Kind of check: TEXT, IMAGE, or LINK"
+        },
+        "preview": {
+          "type": "string",
+          "description": "Redacted preview snippet"
+        },
+        "verdict": {
+          "type": "string",
+          "description": "Outcome: SAFE, SUSPICIOUS, SCAM, or UNSURE"
+        },
+        "riskLevel": {
+          "type": "string",
+          "description": "Risk assessment level: LOW, MEDIUM, or HIGH"
+        },
+        "scamType": {
+          "type": "string",
+          "description": "Detected scam category"
+        },
+        "impersonates": {
+          "type": "string",
+          "description": "Detected brand or authority"
+        },
+        "reasons": {
+          "type": "array",
+          "description": "List of explanation bullet points"
+        },
+        "whatToDo": {
+          "type": "array",
+          "description": "Numbered steps to take"
+        }
+      },
+      "required": ["id", "userId", "createdAt", "kind", "preview", "verdict", "riskLevel", "scamType", "reasons", "whatToDo"]
+    },
+    "FeedbackReport": {
+      "title": "FeedbackReport",
+      "description": "User reported incorrect check result",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique report ID"
+        },
+        "userId": {
+          "type": "string",
+          "description": "UID of the user filing the report"
+        },
+        "resultId": {
+          "type": "string",
+          "description": "ID of the check result being reported"
+        },
+        "reason": {
+          "type": "string",
+          "description": "Report category"
+        },
+        "comment": {
+          "type": "string",
+          "description": "User explanation note"
+        },
+        "createdAt": {
+          "type": "number",
+          "description": "Creation timestamp"
+        }
+      },
+      "required": ["id", "userId", "resultId", "reason", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/entities/UserProfile"
+      },
+      "description": "Root document for a user's cloud preferences and account data"
+    },
+    "/users/{userId}/checks/{checkId}": {
+      "schema": {
+        "$ref": "#/entities/CheckHistory"
+      },
+      "description": "Saved check history items for an authenticated user"
+    },
+    "/reports/{reportId}": {
+      "schema": {
+        "$ref": "#/entities/FeedbackReport"
+      },
+      "description": "User submitted review reports for audit"
+    }
+  }
+}
